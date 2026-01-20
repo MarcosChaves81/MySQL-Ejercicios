@@ -1,1 +1,38 @@
+1. Crear una base de datos llamada `empresa`.
+2. Crear una tabla `empleados` con campos: `id`, `nombre`, `apellido`, `edad`, `puesto`.
+3. Insertar 5 registros en la tabla `empleados`.
+4. Seleccionar todos los registros de la tabla `empleados`.
+5. Seleccionar solo los nombres y apellidos de los empleados.
+6. Filtrar empleados cuya edad sea mayor a 30.
+7. Ordenar empleados por apellido en orden ascendente.
+8. Contar cuántos empleados hay en la tabla.
+9. Mostrar el empleado más joven.
+10. Actualizar el puesto de un empleado específico.
 
+CREATE DATABASE empresa;
+
+USE empresa;
+
+CREATE TABLE empleados (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50),
+  apellido VARCHAR(50),
+  edad INT,
+  puesto VARCHAR(50)
+);
+
+INSERT INTO empleados (nombre, apellido, edad, puesto)
+VALUES
+('Juan','Perez',28,'Analista'),
+('Maria','Gomez',35,'Gerente'),
+('Luis','Lopez',22,'Interno'),
+('Ana','Martinez',40,'Directora'),
+('Pedro','Suarez',30,'Desarrollador');
+
+SELECT * FROM empleados;
+SELECT nombre, apellido FROM empleados;
+SELECT * FROM empleados WHERE edad > 30;
+SELECT * FROM empleados ORDER BY apellido ASC;
+SELECT COUNT(*) AS total_empleados FROM empleados;
+SELECT * FROM empleados ORDER BY edad ASC LIMIT 1;
+UPDATE empleados SET puesto='Senior Developer' WHERE nombre='Pedro';
